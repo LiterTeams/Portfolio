@@ -12,6 +12,7 @@ export default function PageProvider({children}:{children:React.ReactNode}){
             <Header />
             <main>
                 <div className="container">
+                    <span className="block mb-9 bg-red/50 pointer-events-none px-3 py-[6px] text-white text-base text-center rounded-xl">The site is under testing. All data is stubs.</span>
                     {children}
                 </div>
             </main>

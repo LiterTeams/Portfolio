@@ -1,4 +1,5 @@
 import { TechnologyStackEnumT, SocialEnumT } from "@entities/types/enum.types";
+import { _BaseIF } from "./system.interfaces";
 
 interface TechnologyStackIF {
     label: string;
@@ -11,18 +12,16 @@ interface SocialIF {
     href: string;
 }
 
-interface RepositoryIF {
+interface RepositoryIF extends Pick<_BaseIF, "created_at"> {
     label: string;
     description: string;
     code: string;
-    created_at: Date;
 }
 
-interface BlogIF {
+interface BlogIF extends _BaseIF {
     title: string;
     image: string;
     description: string;
-    created_at: Date;
 }
 
 export type { TechnologyStackIF, SocialIF, RepositoryIF, BlogIF }
