@@ -13,7 +13,6 @@ import checkLanguage from "@app/shared/lib/checkLanguage";
 import checkXSS from "@app/shared/lib/checkXSS";
 
 import errors from "@app/entities/config/errors"
-import { ExtensionsEnumT } from "@app/entities/types/enum.types";
 const lang: "Ru" | "Eng" = process.env.NEXT_PUBLIC_LANG as "Ru" | "Eng" || "Ru";
 const error = lang === "Ru" ? errors.rus : errors.eng;
 
@@ -88,16 +87,6 @@ export default function useValidate(initialState:string | number | File | File[]
             if(options.lang && typeof state !== "object"){
                 const message = error.lang[options.lang];
                 switch(!checkLanguage(state,options.lang)){
-                    case true: switchStatus("error"); setErrorMessage(message); return;
-                    case false: switchStatus("success"); setErrorMessage(null); break;
-                }
-            }
-            if (options.extension && typeof state !== null && typeof state === "object"){
-                const extensions = options.extension;
-                const message = error.mimes.replace(":value",String(extensions.join(" | ").toUpperCase()));
-                const file = state as File;
-                const extension = file.type.split("/")[1] as ExtensionsEnumT;
-                switch(!checkFileFormat(extension,extensions)){
                     case true: switchStatus("error"); setErrorMessage(message); return;
                     case false: switchStatus("success"); setErrorMessage(null); break;
                 }

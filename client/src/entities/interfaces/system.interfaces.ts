@@ -1,6 +1,4 @@
 import { ButtonHTMLAttributes } from "react";
-import { ExtensionsEnumT } from "@entities/types/enum.types";
-
 interface _BaseIF {
     readonly id: number;
     readonly created_at: Date;
@@ -22,7 +20,6 @@ interface _ValidateOptionsIF {
     lengthMin?: number; lengthMax?: number; lengthBetween?: number[];
     quantityMin?: number; quantityMax?: number; quantityBetween?: number[];
     sizeMin?: string; sizeMax?: string; sizeBetween?: string[];
-    extension?: ExtensionsEnumT[];
 }
 
 interface _ButtonIF extends ButtonHTMLAttributes<HTMLButtonElement> {
