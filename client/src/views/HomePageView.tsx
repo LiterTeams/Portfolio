@@ -17,7 +17,7 @@ export default function HomePageView(){
                 </div>
             </div>
             <Repository className="mt-6" />
-            <Blog showLast title="Last Blog" className="mt-12" />
+            <Blog title="Last Blog" className="mt-12" />
             <Projects title="Projects" className="mt-12" />
         </>
     )
