@@ -1,6 +1,5 @@
 import { ProjectStatusEnumT, ProjectRatingSystemEnumT } from "../types/enum.types";
 import { _BaseIF, _MetaIF } from "./system.interfaces";
-import { TagIF } from "./tags.interfaces";
 
 interface ProjectResponseIF {
     data: ProjectIF[];

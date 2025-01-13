@@ -11,10 +11,6 @@ interface RepositoryOwnerIF {
     login: string;
 }
 
-interface RepositoriesIF {
-    
-}
-
 interface RepositoryIF extends _BaseIF {
     name: string;
     description?: string;

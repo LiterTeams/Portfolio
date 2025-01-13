@@ -8,6 +8,7 @@ import { RepositoryIF } from "@entities/interfaces/repository.interfaces";
 export default function RepositoryCard({className, id, name, description, html_url, owner, license, language, updated_at}:Omit<RepositoryIF, "created_at"> & {className?: string;}){
 
     const { formattedDate } = useFormattedDate(updated_at, "Year.Month.Day", false);
+    console.log(owner);
 
     return(
         <div id={String(id)} className={`bg-dark-primary-alternative p-3 rounded-xl flex flex-col gap-2 border border-solid border-white/15 ${className}`}>
