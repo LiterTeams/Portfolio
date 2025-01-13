@@ -2,7 +2,7 @@
 import axios from "axios";
 import { errorCatch } from "@api/api.helper";
 
-import { RepositoryIF, RepositoriesIF } from "@entities/interfaces/repository.interfaces";
+import { RepositoryIF } from "@entities/interfaces/repository.interfaces";
 
 const axiosInstance  = axios.create({
     baseURL: process.env.GITHUB_API_URL,
