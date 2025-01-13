@@ -5,7 +5,6 @@ import { _ValidateOptionsIF } from "@entities/interfaces/system.interfaces";
 
 import checkEmpety from "@app/shared/lib/checkEmpety";
 // import checkFormat from "@lib/checkFormat";
-import checkFileFormat from "@app/shared/lib/checkFileFormat";
 import checkLenght from "@app/shared/lib/checkLenght";
 import checkFileSize from "@app/shared/lib/checkFileSize";
 import checkQuantity from "@app/shared/lib/checkQuantity";
