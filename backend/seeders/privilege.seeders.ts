@@ -5,8 +5,10 @@ dotenv.config();
 
 const prisma = new PrismaClient();
 
+interface PrivilegeIF extends Pick<Privilege, "user_id"|"role">{}
+
 const privilegeSeeder = async () => {
-    const data: Pick<Privilege, "user_id"|"role">[] = [
+    const data: PrivilegeIF[] = [
         {user_id: 1, role: "root"},
         {user_id: 2, role: "admin"},
         {user_id: 3, role: "moderator"},

@@ -1,0 +1,13 @@
+model Blog {
+  id          Int                   @id @default(autoincrement())
+  slug        String                @unique
+  title       String
+  description String
+  image       String
+  content     String?
+  visibility  ContentStatusVisible  @default(draft)
+  created_at  DateTime              @default(now()) @map("created_at")
+  updated_at  DateTime              @default(now()) @updatedAt @map("updated_at")
+
+  @@map("blogs")
+}

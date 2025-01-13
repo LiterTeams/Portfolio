@@ -5,7 +5,7 @@ import { RiScales3Fill } from "react-icons/ri";
 
 import { RepositoryIF } from "@entities/interfaces/repository.interfaces";
 
-export default function RepositoryCard({className, id, name, description, html_url, license, language, updated_at}:Omit<RepositoryIF, "created_at"> & {className?: string;}){
+export default function RepositoryCard({className, id, name, description, html_url, owner, license, language, updated_at}:Omit<RepositoryIF, "created_at"> & {className?: string;}){
 
     const { formattedDate } = useFormattedDate(updated_at, "Year.Month.Day", false);
 

@@ -21,6 +21,7 @@
 
       "@entities/*": ["./src/entities/*"],
       "@features/*": ["./src/features/*"],
+      "@contents/*": ["./src/contents/*"],
 
       "@shared/*": ["./src/shared/*"],
       "@providers/*": ["./src/providers/*"],

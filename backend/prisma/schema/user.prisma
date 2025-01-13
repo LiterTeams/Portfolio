@@ -1,14 +1,12 @@
 model User {
-  id         Int      @id @default(autoincrement())
-  email      String   @unique
+  id         Int         @id @default(autoincrement())
+  email      String      @unique
   password   String
-  nickname   String?  @db.VarChar(64)
-  blocking   Boolean  @default(false)
-
+  nickname   String?     @db.VarChar(64)
+  blocking   Boolean     @default(false)
+  created_at DateTime    @default(now()) @map("created_at")
+  updated_at DateTime    @updatedAt @map("updated_at")
   privilege  Privilege[]
-
-  created_at DateTime @default(now()) @map("created_at")
-  updated_at DateTime @updatedAt @map("updated_at")
 
   @@map("users")
 }

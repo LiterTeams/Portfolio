@@ -1,15 +1,22 @@
 import { ProjectStatusEnumT, ProjectRatingSystemEnumT } from "../types/enum.types";
-import { _BaseIF } from "./system.interfaces";
+import { _BaseIF, _MetaIF } from "./system.interfaces";
 import { TagIF } from "./tags.interfaces";
 
+interface ProjectResponseIF {
+    data: ProjectIF[];
+    meta?: _MetaIF;
+}
+
 interface ProjectIF extends _BaseIF {
+    slug: string;
     title: string;
     description: string;
     image: string;
-    tags: TagIF[];
+    tags: string[];
     status: ProjectStatusEnumT;
+    content?: string;
     version: string;
     PRS: ProjectRatingSystemEnumT;
 }
 
-export type { ProjectIF }
+export type { ProjectIF, ProjectResponseIF }

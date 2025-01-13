@@ -6,9 +6,12 @@ dotenv.config();
 
 const prisma = new PrismaClient();
 
+interface UserIF extends Pick<User, "id"|"nickname" | "email" | "password">{}
+
 const userSeeder = async () => {
+	console.log(`Creating Users...`);
     const password = hashSync("password",10);
-    const data: Pick<User, "id"|"nickname" | "email" | "password">[] = [
+    const data: UserIF[] = [
 		{
 			id: 1,
 			nickname:"Root",
@@ -35,7 +38,7 @@ const userSeeder = async () => {
 		},
     ];
     await prisma.user.createMany({data, skipDuplicates: true});
-    console.log(`Created ${data.length} users`);
+    console.log(`Created Users`);
 }
 
 export default userSeeder;

@@ -3,16 +3,9 @@ type NewsStatusEnumT = "draft" | "published" | "archived";
 
 type UnitEnumT = "B" | "BT" | "KB" | "MB" | "GB" | "TB";
 
-type ProjectStatusEnumT = "wip" | "early access" | "completed";
+type ProjectStatusEnumT = "planned"|"wip"|"supported"|"unsupported"|"closed";
 
-type ImageExtensionEnumT = "png" | "jpg" | "jpeg" | "webp" | "avif";
-type VideoExtensionEnumT = "mp4" | "webm" | "avi";
-type NoteExtensionEnumT = "doc" | "docx" | "pdf" | "txt" | "word" | "js";
-type AudioExtensionEnumT = "ogg" | "mp3";
-type ArchiveExtensionEnumT = "rar" | "zip";
-type ExtensionsEnumT = ImageExtensionEnumT | VideoExtensionEnumT | NoteExtensionEnumT | AudioExtensionEnumT | ArchiveExtensionEnumT;
-
-type ProjectRatingSystemEnumT = "G" | "PG" | "PG-13" | "R" | "NC-17";
+type ProjectRatingSystemEnumT = "G" | "PG" | "PG13" | "R" | "NC17";
 
 type _StyleEnumT = "html" | "css" | "scss" | "tailwind";
 type _CodeEnumT = "js" | "ts" | "py";
@@ -28,6 +21,5 @@ export type {
     NewsStatusEnumT,
     UnitEnumT,
     ProjectStatusEnumT,
-    ImageExtensionEnumT, VideoExtensionEnumT, NoteExtensionEnumT, AudioExtensionEnumT, ArchiveExtensionEnumT, ExtensionsEnumT,
     TechnologyStackEnumT, SocialEnumT, ProjectRatingSystemEnumT,
 }

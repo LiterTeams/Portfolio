@@ -4,7 +4,7 @@ import { errorCatch, getContentType } from "./api.helper";
 // import oauthService from "@process/services/oauth/service.oauth";
 
 const axiosInstance  = axios.create({
-    baseURL: "http://localhost:5000/api",
+    baseURL: process.env.SERVER_URL,
     timeout: 2000,
     headers: getContentType(),
 });

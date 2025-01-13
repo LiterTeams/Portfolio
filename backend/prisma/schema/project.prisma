@@ -1,0 +1,17 @@
+model Project {
+  id          Int                   @id @default(autoincrement())
+  slug        String                @unique
+  title       String
+  description String
+  image       String
+  content     String?
+  visibility  ContentStatusVisible  @default(draft)
+  status      ContentStatusWIP
+  version     String?               @default("unknown")
+  PRS         ProjectRatingSystem   @default(G)
+  created_at  DateTime              @default(now()) @map("created_at")
+  updated_at  DateTime              @default(now()) @updatedAt @map("updated_at")
+  tags        ProjectTags[]
+
+  @@map("projects")
+}

@@ -1,33 +1,23 @@
 "use client";
+import useQueryProjects from "@features/hooks/queries/useQueryProjects";
 
-import { projects } from "@entities/config/variables";
-
-import ProjectCard from "@shared/cards/project/ui/ProjectCard";
 import SearchNavbar from "@shared/navbars/search-navbar/ui/SearchNavbar";
+import Content from "@contents/projects/ui/Content";
+import Skeleton from "@contents/projects/ui/Skeleton";
+import Error from "@app/contents/projects/ui/Error";
 
 export default function Projects({showSearch = false, title, className}:{showSearch?: boolean; title?: string; className?: string;}){
+
+    const { data, isLoading, isSuccess, isError, error, refetch } = useQueryProjects.getProjects();
+
     return(
         <>
             {showSearch && <SearchNavbar className="mb-12" />}
+            {title && <h2 className="text-center text-5xl my-12">{title}</h2>}
             <section className={className}>
-                {title && <h2 className="text-center text-5xl mb-12">{title}</h2>}
-                <div className="grid grid-cols-3 gap-x-3 gap-y-9">
-                    {projects.map((dataItem, key) =>
-                        <ProjectCard
-                            key={`project-${key}`}
-                            id={dataItem.id}
-                            title={dataItem.title}
-                            image={dataItem.image}
-                            description={dataItem.description}
-                            tags={dataItem.tags}
-                            status={dataItem.status}
-                            version={dataItem.version}
-                            PRS={dataItem.PRS}
-                            created_at={dataItem.created_at}
-                            updated_at={dataItem.updated_at}
-                        />
-                    )}
-                </div>
+                {isLoading && <Skeleton />}
+                {isSuccess && <Content data={data.data} />}
+                {isError && <Error error={error.message} refetch={refetch} />}
             </section>
         </>
     )

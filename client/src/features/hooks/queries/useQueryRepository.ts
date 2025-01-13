@@ -1,13 +1,22 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import repositoryService from "@app/features/services/repository.service";
+import repositoryService from "@features/services/repository.service";
 
 class UseQueryRepository {
-    getUserRepositories = (username: string) => {
+    
+    getUserRepositories = (usernames: string[]) => {
         return useQuery({
-            queryKey: ["repositories", username],
-            queryFn: () => repositoryService.getRepositories(username),
+            queryKey: ["repositories", usernames],
+            queryFn: async () => repositoryService.getRepositories(usernames),
+            retry: 3,
+        });
+    }
+
+    getUserRepository = (username: string) => {
+        return useQuery({
+            queryKey: ["repository", username],
+            queryFn: async () => repositoryService.getRepository(username),
             select: ({ data }) => data,
             retry: 3,
         });
