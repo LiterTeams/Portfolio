@@ -15,7 +15,7 @@ interface RepositoryIF extends _BaseIF {
     name: string;
     description?: string;
     language?: string;
-    owner?: RepositoryOwnerIF;
+    owner: RepositoryOwnerIF;
     license?: RepositoryLicenseIF;
     html_url: string;
 }

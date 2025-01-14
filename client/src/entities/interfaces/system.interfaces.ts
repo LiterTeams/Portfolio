@@ -35,10 +35,16 @@ interface _LinkIF {
     children?: React.ReactNode;
 }
 
+interface _ParamsIF {
+    page: string;
+    
+}
+
 export type {
     _BaseIF,
     _MetaIF,
     _ButtonIF,
     _LinkIF,
+    _ParamsIF,
     _ValidateOptionsIF,
 } 

@@ -5,6 +5,7 @@ const routes = {
     projects: {label: "Projects", href: "/projects", block: false, wip: false},
     blog: {label: "Blog", href: "/blog", block: false, wip: false},
     connect: {label: "Connect", href: "/connect", block: false, wip: false},
+    repositories: {label: "Repositories", href: "/repositories", block: false, wip: false}
 }
 
 export default routes;

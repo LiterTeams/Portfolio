@@ -2,7 +2,6 @@
 import Developer from "@widgets/personal-info/ui/Developer";
 import TechnologyStack from "@widgets/personal-info/ui/TechnologyStack";
 import Socials from "@widgets/personal-info/ui/Socials";
-import Repository from "@widgets/personal-info/ui/Repository";
 
 export default function AboutPageView(){
     return(
@@ -14,7 +13,6 @@ export default function AboutPageView(){
                     <Socials className="h-full" />
                 </div>
             </div>
-            <Repository className="mt-6" />
         </>
     )
 }

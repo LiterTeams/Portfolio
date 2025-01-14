@@ -26,21 +26,14 @@ axiosInstance.interceptors.response.use(config => config, async error => {
 
 class RepositoryService {
 
-    // getRepositories = async (usernames: string[]) => {
-        // const repositories: RepositoryIF[] = await Promise.all(usernames.map( async username => (await this.getRepository(username)).data))
-        // return repositories;
-        // let repositories: RepositoryIF[] = []
-        // usernames.forEach( async username => {
-        //     const response = await this.getRepository(username);
-        //     if ([200,201].includes(response.status)){
-        //         repositories = response.data;
-        //     }
-        // });
-        // console.log(repositories);
-        // return repositories;
-
-        // await Promise.all(titles.map(async title => await this.getByTitle(title, autoCreate)));
-    // }
+    getRepositories = async (usernames: string[]) => {
+        const repositories: RepositoryIF[] = [];
+        await Promise.all(usernames.map( async username => {
+            const { data } = await this.getRepository(username);
+            repositories.push(...data);
+        }));
+        return repositories;
+    }
 
     getRepository = async (username: string) => {
         return await axiosInstance.get<RepositoryIF[]>(`/users/${username}/repos`);

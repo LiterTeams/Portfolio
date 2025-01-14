@@ -3,8 +3,8 @@ import axiosInstance from "@api/api.interceptor";
 import { ProjectIF, ProjectResponseIF } from "@entities/interfaces/project.interfaces";
 
 class ProjectService {
-    getProjects = async () => {
-        return await axiosInstance.get<ProjectResponseIF>("/projects");
+    getProjects = async (params: string | null = null) => {
+        return await axiosInstance.get<ProjectResponseIF>(params ? `/projects?${params}` : "/projects");
     }
     getProjectBySlug = async (slug:string) => {
         return await axiosInstance.get<ProjectIF>(`/projects/slug/${slug}`);

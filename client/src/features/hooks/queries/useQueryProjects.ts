@@ -5,10 +5,10 @@ import projectService from "@features/services/project.service";
 
 class UseQueryProjects {
     
-    getProjects = () => {
+    getProjects = (params: string | null = null) => {
         return useQuery({
-            queryKey: ["projects"],
-            queryFn: async () => projectService.getProjects(),
+            queryKey: ["projects", params],
+            queryFn: async () => projectService.getProjects(params),
             select: ({ data }) => data,
             retry: 3,
         });

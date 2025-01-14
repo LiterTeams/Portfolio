@@ -6,6 +6,7 @@ interface BlogResponseIF {
 }
 
 interface BlogIF extends _BaseIF {
+    slug: string;
     title: string;
     image: string;
     description: string;

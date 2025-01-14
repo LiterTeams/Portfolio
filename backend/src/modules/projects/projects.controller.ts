@@ -1,5 +1,6 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from "@nestjs/common";
+import { Controller, Get, Post, Body, Patch, Param, Query, Delete } from "@nestjs/common";
 import { ProjectsService } from "./projects.service";
+import { ProjectsQueryParamsIF } from "src/interfaces/paginate.interface";
 
 @Controller("projects")
 export class ProjectsController {
@@ -11,8 +12,8 @@ export class ProjectsController {
   }
 
   @Get()
-  async findAll() {
-    return await this.projectsService.findAll();
+  async findAll(@Query() params: ProjectsQueryParamsIF) {
+    return await this.projectsService.findAll(params);
   }
 
   @Get(":id")

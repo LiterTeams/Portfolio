@@ -11,6 +11,7 @@ export default function Content({data}:{data: BlogIF[]}){
                 <BlogCard
                     key={`blog-${key}`}
                     id={dataItem.id}
+                    slug={dataItem.slug}
                     title={dataItem.title}
                     description={dataItem.description}
                     image={dataItem.image}

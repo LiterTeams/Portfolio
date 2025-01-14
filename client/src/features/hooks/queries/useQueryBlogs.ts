@@ -26,6 +26,7 @@ class UseQueryBlogs {
         return useQuery({
             queryKey: ["blog", id],
             queryFn: async () => blogService.getBlogById(id),
+            select: ({ data }) => data,
             retry: 3,
         });
     }

@@ -5,13 +5,13 @@ import repositoryService from "@features/services/repository.service";
 
 class UseQueryRepository {
     
-    // getUserRepositories = (usernames: string[]) => {
-    //     return useQuery({
-    //         queryKey: ["repositories", usernames],
-    //         queryFn: async () => repositoryService.getRepositories(usernames),
-    //         retry: 3,
-    //     });
-    // }
+    getUserRepositories = (usernames: string[]) => {
+        return useQuery({
+            queryKey: ["repositories", usernames],
+            queryFn: async () => repositoryService.getRepositories(usernames),
+            retry: 3,
+        });
+    }
 
     getUserRepository = (username: string) => {
         return useQuery({

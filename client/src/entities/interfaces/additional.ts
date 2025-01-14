@@ -19,6 +19,7 @@ interface RepositoryIF extends Pick<_BaseIF, "created_at"> {
 }
 
 interface BlogIF extends _BaseIF {
+    slug: string;
     title: string;
     image: string;
     description: string;
