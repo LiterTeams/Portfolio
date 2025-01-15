@@ -1,8 +1,8 @@
 import BlogArticlePageView from "@views/BlogArticlePageView";
 
-type Props = {params:{id:number}}
+// type Props = {params:{id:number}}
 
-export default async function BlogArticlePage ({params}:Props) {
-    const { id } = params;
-    return <BlogArticlePageView id={id} />
+export default async function BlogArticlePage () {
+    // const { id } = params;
+    return <BlogArticlePageView id={1} />
 }
