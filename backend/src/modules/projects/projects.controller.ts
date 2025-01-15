@@ -26,6 +26,11 @@ export class ProjectsController {
     return await this.projectsService.getBySlug(slug);
   }
 
+  @Get("/project-statuses")
+  async getProjectStatuses() {
+    return await this.projectsService.getProjectStatuses();
+  }
+
   @Patch(":id")
   async update(@Param("id") id: string, @Body() DTO: any) {
     return await this.projectsService.update(+id, DTO);

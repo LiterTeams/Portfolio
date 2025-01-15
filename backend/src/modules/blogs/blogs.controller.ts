@@ -1,5 +1,6 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from "@nestjs/common";
+import { Controller, Get, Post, Body, Patch, Param, Query, Delete } from "@nestjs/common";
 import { BlogsService } from "./blogs.service";
+import { QueryParamsIF } from "src/interfaces/paginate.interface";
 
 @Controller("blogs")
 export class BlogsController {
@@ -11,8 +12,8 @@ export class BlogsController {
   }
 
   @Get()
-  async findAll() {
-    return await this.blogsService.findAll();
+  async findAll(@Query() params: QueryParamsIF) {
+    return await this.blogsService.findAll(params);
   }
 
   @Get(":id")

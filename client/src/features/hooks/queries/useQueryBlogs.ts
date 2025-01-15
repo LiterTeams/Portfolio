@@ -5,10 +5,10 @@ import blogService from "@features/services/blog.service";
 
 class UseQueryBlogs {
     
-    getBlogs = () => {
+    getBlogs = (params: string | null = null) => {
         return useQuery({
-            queryKey: ["blogs"],
-            queryFn: async () => blogService.getBlogs(),
+            queryKey: ["blogs", params],
+            queryFn: async () => blogService.getBlogs(params),
             select: ({ data }) => data,
             retry: 3,
         });

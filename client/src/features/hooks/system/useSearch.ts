@@ -35,7 +35,17 @@ export default function useSearch() {
       [pathname, replace, searchParams]
     )
 
-    return { searchParams, pathname, handleSearch, createQuery, deleteQuery }
+    const resetQueries = useCallback(
+      () => {
+        const params = new URLSearchParams(searchParams.toString());
+        const keys = params.keys();
+        keys.forEach(key => params.delete(key))
+        replace(`${pathname}?${params.toString()}`);
+      },
+      [pathname, replace, searchParams]
+    )
+
+    return { searchParams, pathname, handleSearch, createQuery, deleteQuery, resetQueries }
 }
 
 

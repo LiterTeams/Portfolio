@@ -44,6 +44,10 @@ export class ProjectsService {
     return { data: projects }
   }
 
+  async getProjectStatuses() {
+    // const res = await this.DBService.project.
+  }
+
   async update(id: number, DTO: any) {
     return `This action updates a #${id} project`;
   }

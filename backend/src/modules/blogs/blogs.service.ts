@@ -1,5 +1,6 @@
 import { Injectable, NotFoundException } from "@nestjs/common";
 import { DatabaseService } from "../database/database.service";
+import { QueryParamsIF } from "src/interfaces/paginate.interface";
 
 @Injectable()
 export class BlogsService {
@@ -21,8 +22,14 @@ export class BlogsService {
     return blog;
   }
 
-  async findAll() {
-    const blogs = await this.DBService.blog.findMany({});
+  async findAll(params: QueryParamsIF) {
+    const query = params.query || undefined;
+    const blogs = await this.DBService.blog.findMany({
+      where: {
+        title: { startsWith: query, mode: "insensitive" },
+        visibility: "draft",
+      }
+    });
     return { data: blogs }
   }
 

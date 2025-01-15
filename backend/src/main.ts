@@ -4,11 +4,11 @@ import { ConfigService } from "@nestjs/config";
 import { PrismaExceptionFilter } from "./modules/prisma/prisma.exception.filter";
 import * as express from "express";
 import { join } from "path";
-// import { TimeoutInterceptor } from "./interceptors/timeout.interceptor";
+// import { TimeoutInterceptor } from "./interceptors/TimeoutInterceptor";
 
 async function bootstrap() {
     const app = await NestFactory.create(AppModule);
-    // app.useGlobalInterceptors(new TimeoutInterceptor());
+    //app.useGlobalInterceptors(new TimeoutInterceptor());
     const configService = app.get(ConfigService);
     const { httpAdapter } = app.get(HttpAdapterHost);
     app.use("/uploads", express.static(join(__dirname, "..", "..", "uploads")));

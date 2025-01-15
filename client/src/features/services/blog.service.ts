@@ -3,8 +3,8 @@ import axiosInstance from "@api/api.interceptor";
 import { BlogIF, BlogResponseIF } from "@entities/interfaces/blog.interfaces";
 
 class BlogService {
-    getBlogs = async () => {
-        return await axiosInstance.get<BlogResponseIF>("/blogs");
+    getBlogs = async (params: string | null = null) => {
+        return await axiosInstance.get<BlogResponseIF>(params ? `/blogs?${params}` : "/blogs");
     }
     getBlogBySlug = async (slug:string) => {
         return await axiosInstance.get<BlogIF>(`/blogs/slug/${slug}`);

@@ -37,7 +37,6 @@ interface _LinkIF {
 
 interface _ParamsIF {
     page: string;
-    
 }
 
 export type {
